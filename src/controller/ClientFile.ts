@@ -11,6 +11,8 @@ export class ClientFileController {
     const repo = getManager().getRepository(ClientFile);
     const clientFiles = await repo.find();
 
+    repo.find()
+
     ctx.body = clientFiles;
   }
 
@@ -27,12 +29,15 @@ export class ClientFileController {
   }
 
   static async save(ctx: Context) {
-    const repo = getManager().getRepository(ClientFile);
-    const newClientFile = repo.create((ctx as any).request.body);
 
-    await repo.save(newClientFile);
+    debugger;
 
-    ctx.body = newClientFile;
+    // const repo = getManager().getRepository(ClientFile);
+    // const newClientFile = repo.create((ctx as any).request.body);
+
+    // await repo.save(newClientFile);
+
+    // ctx.body = newClientFile;
   }
 
   static async update(ctx: Context) {

@@ -1,5 +1,5 @@
 import { Context } from "koa";
-import { getManager } from "typeorm";
+import { FindConditions, getManager } from "typeorm";
 import { Client } from "../entity/Client.entity";
 
 export class ClientController {
@@ -8,8 +8,14 @@ export class ClientController {
   }
 
   static async getAll(ctx: Context) {
-    const repo = getManager().getRepository(Client);
-    const clients = await repo.find();
+    const repo = getManager().getRepository(Client);    
+    
+    let clients: Client[] = []
+    if ((ctx.request as any).body) {      
+      clients = await repo.find();
+    } else {
+      clients = await repo.find();
+    }
 
     ctx.body = clients;
   }
@@ -52,5 +58,9 @@ export class ClientController {
     const client = await repo.findOne({id: ctx.params.id});
 
     ctx.body = client;
+  }
+
+  static async saveFile(ctx: Context) {
+    debugger;
   }
 }

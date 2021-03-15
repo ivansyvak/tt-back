@@ -20,5 +20,10 @@ export const ClientRoutes = [
     path: '/clients/:id',
     method: 'put',
     action: ClientController.update
+  },
+  {
+    path: '/clients/:id/files',
+    method: 'post',
+    action: ClientController.saveFile
   }
 ];
