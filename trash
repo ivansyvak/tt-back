@@ -1,0 +1,2 @@
+"[join(__dirname, '**', '*.entity.{ts,js}')]"
+"[join(__dirname, '/entity/**', '*.js')]"
