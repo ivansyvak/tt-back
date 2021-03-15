@@ -11,11 +11,7 @@ export class ClientController {
     const repo = getManager().getRepository(Client);    
     
     let clients: Client[] = []
-    if ((ctx.request as any).body) {      
-      clients = await repo.find();
-    } else {
-      clients = await repo.find();
-    }
+    clients = await repo.find();
 
     ctx.body = clients;
   }
