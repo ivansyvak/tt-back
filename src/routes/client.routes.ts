@@ -1,4 +1,8 @@
+import * as multer from '@koa/multer'
+
 import { ClientController } from "../controller/Client";
+
+const upload: any = multer();
 
 export const ClientRoutes = [
   {
@@ -21,9 +25,15 @@ export const ClientRoutes = [
     method: 'put',
     action: ClientController.update
   },
+  // {
+  //   path: '/clients/:id/files',
+  //   method: 'post',
+  //   middleware: upload.single('clientFile'),
+  //   action: ClientController.saveFile
+  // },
   {
-    path: '/clients/:id/files',
-    method: 'post',
-    action: ClientController.saveFile
+    path: '/clients/:id',
+    method: 'delete',
+    action: ClientController.delete
   }
 ];

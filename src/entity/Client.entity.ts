@@ -30,7 +30,6 @@ export class Client {
   status: 'lead' | 'demo' | 'client';
 
   @OneToMany(type => ClientFile, file => file.client)
-  files: [];
-
+  files: ClientFile[];
 }
 
